@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobatv04/screens/onboarding/onboarding_screen.dart';
 import 'package:mobatv04/screens/splash_animated.dart';
 
 void main() {
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashAnimated(),
-        //'/onboarding': (context) => const OnboardingScreen(),
-        // adicione outras rotas aqui
+        '/onboarding': (context) => const OnboardingScreen(),
+        //'/login': (context) => const LoginScreen(),
       },
     );
   }
