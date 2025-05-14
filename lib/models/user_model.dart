@@ -3,13 +3,14 @@ class UserModel {
   final String email;
   final String password;
   UserModel({this.id, required this.email, required this.password});
-  Map toMap() {
+  Map<String, Object?> toMap() {
     return {
       'id': id,
       'email': email,
       'password': password,
     };
   }
+
   static UserModel fromMap(Map map) {
     return UserModel(
       id: map['id'],
