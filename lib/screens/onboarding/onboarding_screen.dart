@@ -19,12 +19,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       description: 'Capture documentos com a câmera e organize tudo em um só lugar.',
     ),
     OnboardingPageModel(
-      image: 'assets/images/step1.png',
+      image: 'assets/images/step2.png',
       title: 'Organize em Categorias',
       description: 'Classifique seus arquivos por tipo e tenha tudo à mão.',
     ),
     OnboardingPageModel(
-      image: 'assets/images/step1.png',
+      image: 'assets/images/step3.png',
       title: 'Segurança em Primeiro Lugar',
       description: 'Proteja seus dados com criptografia e acesso por biometria.',
     ),
@@ -54,6 +54,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: PageView.builder(
         controller: _controller,
         itemCount: _pages.length,
