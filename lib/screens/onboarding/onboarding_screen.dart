@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'onboarding_page_model.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+  final VoidCallback toggleTheme;
+
+  const OnboardingScreen({super.key, required this.toggleTheme});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -54,7 +56,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text('Onboarding'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.brightness_6),
+            onPressed: widget.toggleTheme, // Alterna o tema
+          ),
+        ],
+      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: PageView.builder(
         controller: _controller,
         itemCount: _pages.length,
@@ -85,7 +96,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         },
       ),
       bottomSheet: Container(
-        color: Colors.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         height: 100,
         child: Row(
@@ -94,7 +105,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Row(
               children: List.generate(
                 _pages.length,
-                    (index) => _buildIndicator(index == _currentIndex),
+                (index) => _buildIndicator(index == _currentIndex),
               ),
             ),
             ElevatedButton(

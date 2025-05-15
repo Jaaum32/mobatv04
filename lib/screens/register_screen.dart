@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:mobatv04/widgets/custom_button.dart';
 import '../database/user_dao.dart';
 import '../models/user_model.dart';
-import 'home_sceen.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  final VoidCallback toggleTheme;
+
+  const RegisterScreen({super.key, required this.toggleTheme});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
-}
+  Widget build(BuildContext context) {
+    final _nameController = TextEditingController();
+    final _emailController = TextEditingController();
+    final _passwordController = TextEditingController();
 
-class _RegisterScreenState extends State<RegisterScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _senhaController = TextEditingController();
-  final _confirmarSenhaController = TextEditingController();
-
-  void _registrar() async {
-    if (_formKey.currentState!.validate()) {
+    void _registrar() async {
       final email = _emailController.text;
-      final senha = _senhaController.text;
+      final senha = _passwordController.text;
 
       // Verifica se o e-mail já existe
       final existingUser = await UserDao.getUserByEmail(email);
@@ -34,71 +31,68 @@ class _RegisterScreenState extends State<RegisterScreen> {
       final novoUsuario = UserModel(email: email, password: senha);
       await UserDao.insertUser(novoUsuario);
 
-      // Busca o usuário recém-criado
-      final usuarioCriado = await UserDao.getUserByEmail(email);
-
-      // Navega para a HomeScreen
-      if (usuarioCriado != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreen(user: usuarioCriado)),
-        );
-      }
+      // Navega para a tela de login
+      Navigator.pop(context);
     }
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Registrar')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: _emailController,
-                decoration: const InputDecoration(labelText: 'E-mail'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Informe seu e-mail';
-                  }
-                  if (!value.contains('@')) {
-                    return 'E-mail inválido';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _senhaController,
-                decoration: const InputDecoration(labelText: 'Senha'),
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.length < 6) {
-                    return 'A senha deve ter pelo menos 6 caracteres';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _confirmarSenhaController,
-                decoration: const InputDecoration(labelText: 'Confirmar Senha'),
-                obscureText: true,
-                validator: (value) {
-                  if (value != _senhaController.text) {
-                    return 'As senhas não coincidem';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _registrar,
-                child: const Text('Registrar'),
-              ),
-            ],
+      appBar: AppBar(
+        title: const Text('Cadastre-se'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.brightness_6),
+            onPressed: toggleTheme, // Alterna o tema
           ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Criar Conta',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _nameController,
+              decoration: const InputDecoration(
+                labelText: 'Nome',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'E-mail',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Senha',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            CustomButton(
+              text: 'Registrar',
+              icon: Icons.check,
+              onPressed: _registrar,
+            ),
+            const SizedBox(height: 16),
+            CustomButton(
+              text: 'Registrar',
+              icon: Icons.check,
+              onPressed: _registrar,
+            ),
+            const SizedBox(height: 16),
+          ],
         ),
       ),
     );

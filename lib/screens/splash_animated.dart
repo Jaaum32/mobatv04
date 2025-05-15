@@ -1,8 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'onboarding/onboarding_screen.dart';
 
 class SplashAnimated extends StatefulWidget {
-  const SplashAnimated({super.key});
+  final VoidCallback toggleTheme;
+
+  const SplashAnimated({super.key, required this.toggleTheme});
 
   @override
   State<SplashAnimated> createState() => _SplashAnimatedState();
@@ -34,7 +37,12 @@ class _SplashAnimatedState extends State<SplashAnimated>
     _controller.forward();
 
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/onboarding');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => OnboardingScreen(toggleTheme: widget.toggleTheme),
+        ),
+      );
     });
   }
 
