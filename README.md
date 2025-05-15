@@ -12,7 +12,7 @@ Bem-vindo ao **DocuScan**, um projeto acadêmico desenvolvido para aprender conc
 - **Tela Principal**: Exibe cards e botões estilizados com widgets personalizados.
 - **Temas**: Um borão de temas claro e escuro para o aplicativo.
 - **Widgets Personalizados**:
-  - **CustomCard**: Um card reutilizável para exibir informações.
+  - **CustomCard**: Um card reutilizável para exibir informações e ícones.
   - **CustomButton**: Um botão estilizado com ícone e texto.
 
 ---
