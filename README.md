@@ -20,16 +20,16 @@ Bem-vindo ao **DocuScan**, um projeto acadêmico desenvolvido para aprender conc
 ## 🖼️ Capturas de Tela
 
 ### Tela de Onboarding
-![Tela de Onboarding](assets/readme/onboarding.png)
+![Tela de Onboarding](assets/prints/onboarding.png)
 
 ### Tela de Login tema claro
-![Tela de Login Claro](assets/readme/login_claro.png)
+![Tela de Login Claro](assets/prints/login_claro.png)
 
 ### Tela de Login tema escuro
-![Tela de Login Escuro](assets/readme/login_escuro.png)
+![Tela de Login Escuro](assets/prints/login_escuro.png)
 
 ### Tela Principal
-![Tela Principal](assets/readme/homescreen.png)
+![Tela Principal](assets/prints/homescreen.png)
 
 ---
 
@@ -79,7 +79,7 @@ lib/
 │   └── user_dao.dart        # DAO para manipulação de usuários fictícios
 assets/
 ├── images/                  # Imagens do aplicativo
-├── readme/                  # Prints para o README
+├── prints/                  # Prints para o README
 ```
 
 
