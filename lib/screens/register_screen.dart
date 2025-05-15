@@ -86,11 +86,7 @@ class RegisterScreen extends StatelessWidget {
               onPressed: _registrar,
             ),
             const SizedBox(height: 16),
-            CustomButton(
-              text: 'Registrar',
-              icon: Icons.check,
-              onPressed: _registrar,
-            ),
+            
             const SizedBox(height: 16),
           ],
         ),

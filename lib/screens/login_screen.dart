@@ -166,28 +166,39 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: _login,
-                    child: const Text('Entrar'),
+                  SizedBox(
+                    width: 200, // Define um tamanho fixo para o botão
+                    child: CustomButton(
+                      text: 'Entrar',
+                      icon: Icons.login,
+                      onPressed: _login,
+                      color: Colors.blue,
+                    ),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 16),
-            // Botão "Esqueceu a senha?" usando CustomButton
-            CustomButton(
-              text: 'Esqueceu a senha?',
-              icon: Icons.lock_reset,
-              onPressed: _goToForgotPassword,
-              color: Colors.orange,
+            // Botão "Esqueceu a senha?" com tamanho padronizado
+            SizedBox(
+              width: 200, // Define um tamanho fixo para o botão
+              child: CustomButton(
+                text: 'Esqueceu a senha?',
+                icon: Icons.lock_reset,
+                onPressed: _goToForgotPassword,
+                color: Colors.orange,
+              ),
             ),
             const SizedBox(height: 16),
-            // Botão "Cadastre-se" usando CustomButton
-            CustomButton(
-              text: 'Cadastre-se',
-              icon: Icons.person_add,
-              onPressed: _goToRegister,
-              color: Colors.green,
+            // Botão "Cadastre-se" com tamanho padronizado
+            SizedBox(
+              width: 200, // Define um tamanho fixo para o botão
+              child: CustomButton(
+                text: 'Cadastre-se',
+                icon: Icons.person_add,
+                onPressed: _goToRegister,
+                color: Colors.green,
+              ),
             ),
           ],
         ),
