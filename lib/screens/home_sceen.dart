@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobatv04/widgets/custom_card.dart';
-import 'package:mobatv04/widgets/custom_button.dart';
 import '../models/user_model.dart';
 import 'login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,13 +56,13 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            // Cards de funcionalidades
+            // CustomCards clicáveis
             CustomCard(
               title: 'Digitalizar Documentos',
               subtitle: 'Use a câmera para capturar documentos.',
               icon: Icons.camera_alt,
               onTap: () {
-                // Sem funcionalidade implementada
+                // Ação para digitalizar documentos
               },
             ),
             const SizedBox(height: 16),
@@ -72,7 +71,7 @@ class HomeScreen extends StatelessWidget {
               subtitle: 'Classifique e organize seus documentos.',
               icon: Icons.folder,
               onTap: () {
-                // Sem funcionalidade implementada
+                // Ação para organizar arquivos
               },
             ),
             const SizedBox(height: 16),
@@ -81,25 +80,24 @@ class HomeScreen extends StatelessWidget {
               subtitle: 'Ajuste preferências do aplicativo.',
               icon: Icons.settings,
               onTap: () {
-                // Sem funcionalidade implementada
-              },
-            ),
-            const SizedBox(height: 32),
-            // Botões de ação
-            CustomButton(
-              text: 'Explorar Funcionalidades',
-              icon: Icons.explore,
-              onPressed: () {
-                // Sem funcionalidade implementada
+                // Ação para abrir configurações
               },
             ),
             const SizedBox(height: 16),
-            // Botão de logout usando CustomButton
-            CustomButton(
-              text: 'Sair',
+            CustomCard(
+              title: 'Explorar Funcionalidades',
+              subtitle: 'Descubra mais recursos do aplicativo.',
+              icon: Icons.explore,
+              onTap: () {
+                // Ação para explorar funcionalidades
+              },
+            ),
+            const SizedBox(height: 16),
+            CustomCard(
+              title: 'Sair',
+              subtitle: 'Encerrar sessão e voltar ao login.',
               icon: Icons.logout,
-              color: Colors.red,
-              onPressed: () => _logout(context), // Chama a função de logout
+              onTap: () => _logout(context), // Chama a função de logout
             ),
           ],
         ),

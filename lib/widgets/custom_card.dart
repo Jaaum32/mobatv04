@@ -4,20 +4,20 @@ class CustomCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final IconData icon;
-  final VoidCallback? onTap;
+  final VoidCallback onTap; // Função para clique
 
   const CustomCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     required this.icon,
-    this.onTap,
-  }) : super(key: key);
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap, // Torna o card clicável
       child: Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -29,25 +29,21 @@ class CustomCard extends StatelessWidget {
             children: [
               Icon(icon, size: 40, color: Colors.blue),
               const SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    subtitle,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
+                    const SizedBox(height: 4),
+                    Text(
+                      subtitle,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
