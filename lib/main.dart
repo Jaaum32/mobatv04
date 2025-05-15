@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobatv04/screens/login_screen.dart';
-import 'package:mobatv04/screens/onboarding/onboarding_screen.dart';
 import 'package:mobatv04/screens/splash_animated.dart';
 
 void main() {
