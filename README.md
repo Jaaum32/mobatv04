@@ -3,6 +3,8 @@
 Bem-vindo ao **DocuScan**, um projeto acadêmico desenvolvido para aprender conceitos de desenvolvimento mobile, como login, navegação entre telas e criação de widgets personalizados. Este aplicativo não possui funcionalidades completas, mas serve como base para estudos e experimentação.
 
 ---
+## 📸 Fluxo da Aplicação
+Splash Nativa → Splash Animada → Onboarding → Login → Tela Inicial ou Mensagem de Boas Vindas
 
 ## 📸 Funcionalidades Implementadas
 
